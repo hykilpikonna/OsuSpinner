@@ -46,7 +46,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Hotkey = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Test = new System.Windows.Forms.Button();
             this.Pro = new System.Windows.Forms.Button();
@@ -72,6 +72,7 @@
             // 
             // Random
             // 
+            this.Random.Enabled = false;
             this.Random.Location = new System.Drawing.Point(59, 96);
             this.Random.MaxLength = 3;
             this.Random.Name = "Random";
@@ -189,13 +190,15 @@
             this.button2.Text = "Disable";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // Hotkey
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(329, 73);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(105, 21);
-            this.comboBox1.TabIndex = 13;
+            this.Hotkey.Enabled = false;
+            this.Hotkey.FormattingEnabled = true;
+            this.Hotkey.Location = new System.Drawing.Point(329, 73);
+            this.Hotkey.Name = "Hotkey";
+            this.Hotkey.Size = new System.Drawing.Size(105, 21);
+            this.Hotkey.TabIndex = 13;
+            this.Hotkey.Text = "V";
             // 
             // label5
             // 
@@ -219,7 +222,7 @@
             // 
             this.Pro.BackColor = System.Drawing.Color.Aquamarine;
             this.Pro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Pro.Location = new System.Drawing.Point(175, 122);
+            this.Pro.Location = new System.Drawing.Point(176, 122);
             this.Pro.Name = "Pro";
             this.Pro.Size = new System.Drawing.Size(114, 20);
             this.Pro.TabIndex = 15;
@@ -240,7 +243,7 @@
             this.ContextMenuStrip = this.contextMenuStrip2;
             this.Controls.Add(this.Pro);
             this.Controls.Add(this.Test);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Hotkey);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Random);
@@ -288,7 +291,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Hotkey;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Test;
         private System.Windows.Forms.Button Pro;

@@ -20,6 +20,19 @@ namespace OsuSpinner
         [DllImport("user32.dll")]
         public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
+        [DllImport("User32.Dll")]
+        public static extern long SetCursorPos(int x, int y);
+
+        [DllImport("User32.Dll")]
+        public static extern bool ClientToScreen(IntPtr hWnd, ref POINT point);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int x;
+            public int y;
+        }
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -76,26 +89,6 @@ namespace OsuSpinner
         public static void Spin(int speed, int radius, int random, bool click)
         {
             spintest();
-        }
-
-        private static void Change(int X, int Y)
-        {
-            Cursor.Position = new System.Drawing.Point(X, Y);
-        }
-
-
-        static void spintest()
-        {
-            while (true)
-            {
-                //Console.WriteLine(Cursor.Position.ToString());
-                Change(796, 416);
-                Change(812, 746);
-                Change(1163, 724);
-                Change(1154, 393);
-                Change(950, 347);
-            }
-
         }
     }
 }

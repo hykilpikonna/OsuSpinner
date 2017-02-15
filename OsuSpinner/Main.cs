@@ -39,6 +39,8 @@ namespace OsuSpinner
 
         }
 
+        KeyboardHook hook = new KeyboardHook();
+
         private void Main_Load(object sender, EventArgs e)
         {
             Program.SetValue("Speed", "10");
@@ -48,7 +50,18 @@ namespace OsuSpinner
             this.Y.Text = (Screen.FromControl(this).Bounds.Height / 2).ToString();
             Program.SetValue("Offset", "0");
             Program.SetValue("Radius", "3");
-            
+
+
+            // register the event that is fired after the key press.
+            hook.KeyPressed += new EventHandler<KeyPressedEventArgs>(hook_KeyPressed);
+            // register the control + alt + F12 combination as hot key.
+            hook.RegisterHotKey(0, Keys.V);
+        }
+
+        void hook_KeyPressed(object sender, KeyPressedEventArgs e)
+        {
+            // show the keys pressed in a label.
+            Program.Spin();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
