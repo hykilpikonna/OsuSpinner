@@ -77,5 +77,30 @@ namespace OsuSpinner
                 Program.SetValue("Speed", Speed.Text);
             }
         }
+
+        private void Test_Click(object sender, EventArgs e)
+        {
+            Program.Spin(Int32.Parse(Speed.Text), Int32.Parse(Radius.Text), Int32.Parse(Random.Text), true);
+        }
+
+        ProSettings proFrm = new ProSettings();
+
+        private void Pro_Click(object sender, EventArgs e)
+        {
+            bool tempPro = Program.pro;
+            Program.pro = !Program.pro;
+            if(!tempPro)
+            {
+                proFrm.Show();
+                this.Pro.Text = "I'm NOT a PRO!";
+            }
+            else
+            {
+                proFrm.Hide();
+                this.Pro.Text = "I'm a PRO!";
+            }
+            
+            
+        }
     }
 }

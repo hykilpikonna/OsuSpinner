@@ -12,6 +12,8 @@ namespace OsuSpinner
 {
     static class Program
     {
+        public static bool pro = false;
+
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
 
@@ -70,9 +72,29 @@ namespace OsuSpinner
             float output;
             return float.TryParse(s, out output);
         }
-
-        public static void Spin(int speed, int radius, int random)
+        
+        public static void Spin(int speed, int radius, int random, bool click)
         {
+            spintest();
+        }
+
+        private static void Change(int X, int Y)
+        {
+            Cursor.Position = new System.Drawing.Point(X, Y);
+        }
+
+
+        static void spintest()
+        {
+            while (true)
+            {
+                //Console.WriteLine(Cursor.Position.ToString());
+                Change(796, 416);
+                Change(812, 746);
+                Change(1163, 724);
+                Change(1154, 393);
+                Change(950, 347);
+            }
 
         }
     }
