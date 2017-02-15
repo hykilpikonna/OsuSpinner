@@ -4,11 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Runtime.InteropServices;
+
+
 
 namespace OsuSpinner
 {
     static class Program
     {
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -54,6 +63,17 @@ namespace OsuSpinner
                 return "";
             else
                 return config.AppSettings.Settings[key].Value;
+        }
+
+        public static bool IsNumeric(this string s)
+        {
+            float output;
+            return float.TryParse(s, out output);
+        }
+
+        public static void Spin(int speed, int radius, int random)
+        {
+
         }
     }
 }

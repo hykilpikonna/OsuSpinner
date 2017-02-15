@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Configuration;
 
 namespace OsuSpinner
 {
@@ -39,7 +41,41 @@ namespace OsuSpinner
 
         private void Main_Load(object sender, EventArgs e)
         {
+            Program.SetValue("Speed", "10");
+            Program.SetValue("X", (Screen.FromControl(this).Bounds.Width / 2).ToString());
+            this.X.Text = (Screen.FromControl(this).Bounds.Width / 2).ToString();
+            Program.SetValue("Y", (Screen.FromControl(this).Bounds.Height / 2).ToString());
+            this.Y.Text = (Screen.FromControl(this).Bounds.Height / 2).ToString();
+            Program.SetValue("Offset", "0");
+            Program.SetValue("Radius", "3");
+            
+        }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Speed_TextChanged(object sender, EventArgs e)
+        {
+            if (!Program.IsNumeric(Speed.Text))
+            {
+                MessageBox.Show("ERROR - Speed have to be a number");
+            }
+            else
+            {
+                Program.SetValue("Speed", Speed.Text);
+            }
         }
     }
 }
