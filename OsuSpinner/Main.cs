@@ -60,8 +60,14 @@ namespace OsuSpinner
 
         void hook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            // show the keys pressed in a label.
-            Program.Spin();
+            Win32.POINT p = new Win32.POINT();
+            Program.LastAngle += Program.Angle;
+            p.x = Int32.Parse(X.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Cos(Convert.ToDouble(Program.LastAngle))));
+            p.y = Int32.Parse(Y.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Sin(Convert.ToDouble(Program.LastAngle))));
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+            //Program.Spin(Int32.Parse(Speed.Text), Int32.Parse(Radius.Text), Int32.Parse(Random.Text), Program.Angle, Program.AutoClick);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,7 +99,7 @@ namespace OsuSpinner
 
         private void Test_Click(object sender, EventArgs e)
         {
-            Program.Spin(Int32.Parse(Speed.Text), Int32.Parse(Radius.Text), Int32.Parse(Random.Text), true);
+            
         }
 
         ProSettings proFrm = new ProSettings();

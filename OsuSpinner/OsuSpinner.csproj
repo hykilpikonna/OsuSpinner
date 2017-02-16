@@ -91,6 +91,7 @@
     <Compile Include="ProSettings.Designer.cs">
       <DependentUpon>ProSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Win32.cs" />
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

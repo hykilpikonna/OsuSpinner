@@ -38,6 +38,7 @@ namespace OsuSpinner
                 if (Int32.Parse(Angle.Text) > 0 && Int32.Parse(Angle.Text) < 180)
                 {
                     Program.SetValue("Angle", Angle.Text);
+                    Program.Angle = Int32.Parse(Angle.Text);
                 }
                 else
                 {
@@ -48,6 +49,11 @@ namespace OsuSpinner
             {
                 MessageBox.Show("ERROR - Angle have to be a number");
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.AutoClick = AutoClick.Checked;
         }
     }
 }

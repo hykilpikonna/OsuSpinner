@@ -32,8 +32,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CircleSpinOptions = new System.Windows.Forms.GroupBox();
-            this.Angle = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.Angle = new System.Windows.Forms.TextBox();
+            this.AutoClick = new System.Windows.Forms.CheckBox();
             this.CircleSpinOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +64,7 @@
             // CircleSpinOptions
             // 
             this.CircleSpinOptions.BackColor = System.Drawing.Color.Transparent;
+            this.CircleSpinOptions.Controls.Add(this.AutoClick);
             this.CircleSpinOptions.Controls.Add(this.label2);
             this.CircleSpinOptions.Controls.Add(this.Angle);
             this.CircleSpinOptions.Location = new System.Drawing.Point(12, 39);
@@ -71,6 +73,15 @@
             this.CircleSpinOptions.TabIndex = 2;
             this.CircleSpinOptions.TabStop = false;
             this.CircleSpinOptions.Text = "Circle spin options";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Angle :";
             // 
             // Angle
             // 
@@ -81,14 +92,18 @@
             this.Angle.Text = "20";
             this.Angle.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label2
+            // AutoClick
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Angle :";
+            this.AutoClick.AutoSize = true;
+            this.AutoClick.Checked = true;
+            this.AutoClick.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoClick.Location = new System.Drawing.Point(16, 48);
+            this.AutoClick.Name = "AutoClick";
+            this.AutoClick.Size = new System.Drawing.Size(142, 17);
+            this.AutoClick.TabIndex = 2;
+            this.AutoClick.Text = "Auto click while spinning";
+            this.AutoClick.UseVisualStyleBackColor = true;
+            this.AutoClick.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // ProSettings
             // 
@@ -120,5 +135,6 @@
         private System.Windows.Forms.GroupBox CircleSpinOptions;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Angle;
+        private System.Windows.Forms.CheckBox AutoClick;
     }
 }

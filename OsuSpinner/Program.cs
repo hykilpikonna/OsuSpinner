@@ -20,19 +20,6 @@ namespace OsuSpinner
         [DllImport("user32.dll")]
         public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
-        [DllImport("User32.Dll")]
-        public static extern long SetCursorPos(int x, int y);
-
-        [DllImport("User32.Dll")]
-        public static extern bool ClientToScreen(IntPtr hWnd, ref POINT point);
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct POINT
-        {
-            public int x;
-            public int y;
-        }
-
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -85,10 +72,24 @@ namespace OsuSpinner
             float output;
             return float.TryParse(s, out output);
         }
-        
-        public static void Spin(int speed, int radius, int random, bool click)
+
+        public static int LastAngle = 0;
+
+        public static bool AutoClick;
+        public static int Angle = 50;
+
+        /*public static void Spin(int speed, int radius, int random, int angle, bool click)
         {
-            spintest();
-        }
+            //X = r * cos(angle)
+            //Y = r * sin(angle)
+
+            Win32.POINT p = new Win32.POINT();
+            LastAngle += angle;
+            p.x = Convert.ToInt32(Math.Round(Convert.ToDouble(radius) * Math.Cos(Convert.ToDouble(LastAngle))));
+            p.y = Convert.ToInt32(Math.Round(Convert.ToDouble(radius) * Math.Sin(Convert.ToDouble(LastAngle))));
+
+            Win32.ClientToScreen(this.Handle, ref p);
+            Win32.SetCursorPos(p.x, p.y);
+        }*/
     }
 }
