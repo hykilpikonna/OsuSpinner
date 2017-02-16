@@ -43,13 +43,13 @@ namespace OsuSpinner
 
         private void Main_Load(object sender, EventArgs e)
         {
-            Program.SetValue("Speed", "10");
+            Program.SetValue("Speed", Speed.Text);
             Program.SetValue("X", (Screen.FromControl(this).Bounds.Width / 2).ToString());
             this.X.Text = (Screen.FromControl(this).Bounds.Width / 2).ToString();
             Program.SetValue("Y", (Screen.FromControl(this).Bounds.Height / 2).ToString());
             this.Y.Text = (Screen.FromControl(this).Bounds.Height / 2).ToString();
-            Program.SetValue("Offset", "0");
-            Program.SetValue("Radius", "3");
+            Program.SetValue("Offset", Random.Text);
+            Program.SetValue("Radius", Radius.Text);
 
 
             // register the event that is fired after the key press.
@@ -60,15 +60,33 @@ namespace OsuSpinner
 
         void hook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            Win32.POINT p = new Win32.POINT();
-            Program.LastAngle += Program.Angle;
-            p.x = Int32.Parse(X.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Cos(Convert.ToDouble(Program.LastAngle))));
-            p.y = Int32.Parse(Y.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Sin(Convert.ToDouble(Program.LastAngle))));
+            //Win32.POINT p = new Win32.POINT();
+            if (!Program.newCalc)
+            {
+                Program.LastAngle += Program.Angle;
+                int moveX = Int32.Parse(X.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Cos(Convert.ToDouble(Program.LastAngle))));
+                int moveY = Int32.Parse(Y.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Sin(Convert.ToDouble(Program.LastAngle))));
 
-            Win32.ClientToScreen(this.Handle, ref p);
-            Win32.SetCursorPos(p.x, p.y);
-            //Program.Spin(Int32.Parse(Speed.Text), Int32.Parse(Radius.Text), Int32.Parse(Random.Text), Program.Angle, Program.AutoClick);
-        }
+                Cursor.Position = new Point(moveX, moveY);
+            }
+            else
+            {
+                for (int i = 0; i < 10000; i = i + 30)
+                {                    
+                    int moveX = Int32.Parse(X.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Cos(Convert.ToDouble(i))));
+                    int moveY = Int32.Parse(Y.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Sin(Convert.ToDouble(i))));
+
+                    Cursor.Position = new Point(moveX, moveY);
+                    Program.LastAngle = i;
+                }
+            }
+
+                //p.x = Int32.Parse(X.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Cos(Convert.ToDouble(Program.LastAngle))));
+                //p.y = Int32.Parse(Y.Text) + Convert.ToInt32(Math.Round(Convert.ToDouble(Int32.Parse(Radius.Text)) * Math.Sin(Convert.ToDouble(Program.LastAngle))));
+                //Win32.ClientToScreen(this.Handle, ref p);
+                //Win32.SetCursorPos(p.x, p.y);
+                //-Program.Spin(Int32.Parse(Speed.Text), Int32.Parse(Radius.Text), Int32.Parse(Random.Text), Program.Angle, Program.AutoClick);
+            }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

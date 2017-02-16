@@ -35,14 +35,14 @@ namespace OsuSpinner
         {
             if (Program.IsNumeric(Angle.Text))
             {
-                if (Int32.Parse(Angle.Text) > 0 && Int32.Parse(Angle.Text) < 180)
+                if (Int32.Parse(Angle.Text) > 0 && Int32.Parse(Angle.Text) <= 360)
                 {
                     Program.SetValue("Angle", Angle.Text);
                     Program.Angle = Int32.Parse(Angle.Text);
                 }
                 else
                 {
-                    MessageBox.Show("ERROR - Angle have to be > 0 and < 180");
+                    MessageBox.Show("ERROR - Angle have to be > 0 and <= 360");
                 }
             }
             else
@@ -54,6 +54,11 @@ namespace OsuSpinner
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             Program.AutoClick = AutoClick.Checked;
+        }
+
+        private void UseNewCalc_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.newCalc = UseNewCalc.Checked;
         }
     }
 }

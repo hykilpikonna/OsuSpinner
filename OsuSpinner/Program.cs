@@ -76,7 +76,9 @@ namespace OsuSpinner
         public static int LastAngle = 0;
 
         public static bool AutoClick;
-        public static int Angle = 50;
+        public static int Angle = 30;
+
+        public static bool newCalc = true;
 
         /*public static void Spin(int speed, int radius, int random, int angle, bool click)
         {

@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Angle = new System.Windows.Forms.TextBox();
             this.AutoClick = new System.Windows.Forms.CheckBox();
+            this.UseNewCalc = new System.Windows.Forms.CheckBox();
             this.CircleSpinOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             // CircleSpinOptions
             // 
             this.CircleSpinOptions.BackColor = System.Drawing.Color.Transparent;
+            this.CircleSpinOptions.Controls.Add(this.UseNewCalc);
             this.CircleSpinOptions.Controls.Add(this.AutoClick);
             this.CircleSpinOptions.Controls.Add(this.label2);
             this.CircleSpinOptions.Controls.Add(this.Angle);
@@ -89,7 +91,7 @@
             this.Angle.Name = "Angle";
             this.Angle.Size = new System.Drawing.Size(178, 20);
             this.Angle.TabIndex = 0;
-            this.Angle.Text = "20";
+            this.Angle.Text = "30";
             this.Angle.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // AutoClick
@@ -104,6 +106,19 @@
             this.AutoClick.Text = "Auto click while spinning";
             this.AutoClick.UseVisualStyleBackColor = true;
             this.AutoClick.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // UseNewCalc
+            // 
+            this.UseNewCalc.AutoSize = true;
+            this.UseNewCalc.Checked = true;
+            this.UseNewCalc.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.UseNewCalc.Location = new System.Drawing.Point(16, 72);
+            this.UseNewCalc.Name = "UseNewCalc";
+            this.UseNewCalc.Size = new System.Drawing.Size(72, 17);
+            this.UseNewCalc.TabIndex = 3;
+            this.UseNewCalc.Text = "New Calc";
+            this.UseNewCalc.UseVisualStyleBackColor = true;
+            this.UseNewCalc.CheckedChanged += new System.EventHandler(this.UseNewCalc_CheckedChanged);
             // 
             // ProSettings
             // 
@@ -136,5 +151,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Angle;
         private System.Windows.Forms.CheckBox AutoClick;
+        private System.Windows.Forms.CheckBox UseNewCalc;
     }
 }

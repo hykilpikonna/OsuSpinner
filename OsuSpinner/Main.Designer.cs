@@ -48,7 +48,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.Hotkey = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Test = new System.Windows.Forms.Button();
             this.Pro = new System.Windows.Forms.Button();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -140,7 +139,7 @@
             this.Radius.Name = "Radius";
             this.Radius.Size = new System.Drawing.Size(96, 20);
             this.Radius.TabIndex = 1;
-            this.Radius.Text = "5";
+            this.Radius.Text = "30";
             // 
             // contextMenuStrip2
             // 
@@ -183,6 +182,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(312, 122);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 20);
@@ -209,15 +209,6 @@
             this.label5.Text = "Hotkey:";
             this.label5.Click += new System.EventHandler(this.label3_Click);
             // 
-            // Test
-            // 
-            this.Test.Location = new System.Drawing.Point(175, 12);
-            this.Test.Name = "Test";
-            this.Test.Size = new System.Drawing.Size(114, 29);
-            this.Test.TabIndex = 14;
-            this.Test.Text = "Test";
-            this.Test.UseVisualStyleBackColor = true;
-            // 
             // Pro
             // 
             this.Pro.BackColor = System.Drawing.Color.Aquamarine;
@@ -242,7 +233,6 @@
             this.ClientSize = new System.Drawing.Size(471, 161);
             this.ContextMenuStrip = this.contextMenuStrip2;
             this.Controls.Add(this.Pro);
-            this.Controls.Add(this.Test);
             this.Controls.Add(this.Hotkey);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -293,7 +283,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox Hotkey;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button Test;
         private System.Windows.Forms.Button Pro;
     }
 }
