@@ -1,7 +1,6 @@
 OSU! Spinner
 =============================
 ## An advanced spinner hack for the game OSU!
-=============================
 ***
  * Data:
      * New Calculation: About 470 RPM maximum.
